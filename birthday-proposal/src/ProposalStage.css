@@ -1,0 +1,112 @@
+.proposal-screen, .celebration-screen {
+  width: 100vw;
+  height: 100dvh;
+  background: radial-gradient(circle, #2a0813 0%, #0c0205 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100; /* Ensure it covers background elements */
+  font-family: 'Georgia', serif;
+}
+
+.proposal-card {
+  text-align: center;
+  color: #fff;
+  padding: 40px;
+  max-width: 500px;
+  z-index: 10; /* Ensures the card stays above the falling petals */
+}
+
+.proposal-sub {
+  font-style: italic;
+  color: #ff9ebb;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.proposal-title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-shadow: 0 0 20px rgba(255, 30, 100, 0.6);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  min-height: 100px; /* Gives room for the dodging button */
+}
+
+.btn-yes {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b) !important;
+  color: white !important;
+  border: none !important;
+  padding: 15px 40px !important;
+  font-size: 1.3rem !important;
+  font-weight: bold !important;
+  border-radius: 30px !important;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+  transition: transform 0.2s;
+}
+
+.btn-yes:hover {
+  transform: scale(1.1);
+}
+
+.btn-no {
+  background: #333 !important;
+  color: #aaa !important;
+  border: 1px solid #555 !important;
+  padding: 10px 25px !important;
+  font-size: 1rem !important;
+  border-radius: 20px !important;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+
+.celebration-content h1 {
+  font-size: 3.5rem;
+  color: #ff416c;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(255,65,108,0.4);
+}
+
+.celebration-content p {
+  color: #eee;
+  font-size: 1.3rem;
+}
+
+/* --- Falling Petals Animation --- */
+.petals-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100dvh;
+  pointer-events: none; /* Allows user to click through the petals to the buttons */
+  overflow: hidden;
+  z-index: 1; /* Places petals behind the text/buttons */
+}
+
+.petal {
+  position: absolute;
+  top: -10%;
+  width: 16px;
+  height: 16px;
+  background: #e60039;
+  border-radius: 15px 0px 15px 0px; /* Creates the teardrop/petal shape */
+  opacity: 0.8;
+  animation: fall linear infinite;
+  box-shadow: 0 0 8px rgba(230, 0, 57, 0.6);
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(60px); opacity: 0; }
+}
