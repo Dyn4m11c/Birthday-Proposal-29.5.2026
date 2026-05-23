@@ -17,13 +17,14 @@ const MessageStage = ({ onNext }) => {
         zIndex: 10 
       }}
     >
-      <h2 style={{ color: '#ff4d4d', marginBottom: '20px', fontSize: '2.2rem' }}>My Dearest,</h2>
+      <h2 style={{ color: '#ff4d4d', marginBottom: '20px', fontSize: '2.2rem' }}>,عزيزة قلبي وأميرة حياتي</h2>
       <p style={{ lineHeight: '1.8', fontSize: '1.2rem', marginBottom: '30px' }}>
-        Every moment with you feels like a dream I never want to wake up from. 
-        Today is all about celebrating the incredible person you are. 
-        I built this little corner of the internet just for us, so we can look back on everything we've built together.
+    كل تانية بتمرق من حياتي وانت معي زي الحلم الي بديش اصحى منو,
+     كل سنة وانت سالمة حبيبتي ان شاء الله تكون حياتك تكون كلها صحة وسعادة ونجاح,
+     وهاي عشان احتفل فيكي اليوم وافرجيكي عنجد انك دنيتي, 
+     لاني بعشقك ولانك بتستاهلي يا احلى انسانة شفتها بحياتي
       </p>
-      <button onClick={onNext}>Our Memories ❤️</button>
+      <button onClick={onNext}>❤️...لكل تانية</button>
     </motion.div>
   );
 };

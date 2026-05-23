@@ -48,8 +48,8 @@ const ProposalStage = () => {
           transition={{ duration: 0.8, type: "spring" }}
           className="celebration-content"
         >
-          <h1>💍 SHE SAID YES! ❤️</h1>
-          <p>The best chapter of our story is about to begin. I love you forever.</p>
+          <h1>💍 يا عيني ❤️</h1>
+          <p>الجزء الحلو من قصتنا اسا رح يبلش</p>
           <div className="hearts-raining">✨🥂✨</div>
         </motion.div>
       </div>
@@ -65,8 +65,8 @@ const ProposalStage = () => {
         transition={{ duration: 1 }}
         className="proposal-card"
       >
-        <p className="proposal-sub">From the moment we met, to this very second...</p>
-        <h1 className="proposal-title">Will you marry me?</h1>
+        <p className="proposal-sub">من لما عرفتك وأنا متأكد اني بدي اياكي</p>
+        <h1 className="proposal-title">بتقبلي نكون لبعض وتتجوزيني؟</h1>
 
         <div className="action-buttons">
           {/* YES BUTTON */}
@@ -74,7 +74,7 @@ const ProposalStage = () => {
             className="btn-yes" 
             onClick={() => setHasAccepted(true)}
           >
-            YES! 😍
+           😍 يس
           </button>
 
           {/* NO BUTTON */}
@@ -84,7 +84,7 @@ const ProposalStage = () => {
             onMouseEnter={dodgeNoButton}
             onClick={dodgeNoButton} // For mobile touchscreen users
           >
-            No 😢
+           😢 لا
           </button>
         </div>
       </motion.div>

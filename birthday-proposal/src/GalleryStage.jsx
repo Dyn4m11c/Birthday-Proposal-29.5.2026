@@ -1,28 +1,32 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './GalleryStage.css';
 
 const memories = [
-  { id: 1, img: 'https://via.placeholder.com/400x300?text=Photo+1', note: "Our first date here!" },
-  { id: 2, img: 'https://via.placeholder.com/400x300?text=Photo+2', note: "You make my world beautiful." },
-  { id: 3, img: 'https://via.placeholder.com/400x300?text=Photo+3', note: "That amazing trip!" },
-  { id: 4, img: 'https://via.placeholder.com/400x300?text=Photo+4', note: "Laughing until we cried." },
-  { id: 5, img: 'https://via.placeholder.com/400x300?text=Photo+5', note: "A quiet moment together." },
-  { id: 6, img: 'https://via.placeholder.com/400x300?text=Photo+6', note: "To many more years to come. ❤️" }
+  { id: 1, img: '/img1.JPG', note: "🤤 اما الجمال والتلتليم موضوع تاني" },
+  { id: 2, img: '/img2.JPG', note: "🥺 ai الصورة الوحيدة الي بتجمعنا مش" },
+  { id: 3, img: '/img3.JPG', note: "🥰 وبكِ أيقنْتُ أنّي أملِكُ من الحظ أجمله" },
+  { id: 4, img: '/img4.JPG', note: "🌷 أحلى وردة بتزهر بحديقة حياتي" },
+  { id: 5, img: '/img5.JPG', note: "🌘 القمر الي ضاويلي حياتي" },
+  { id: 6, img: '/img6.JPG', note: "😊 يسعدها الشغيلة اكتر وحدة بتتعب" }
 ];
 
 const GalleryStage = ({ onNext, onProposal }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="gallery-container">
-      <h2 className="gallery-title">Moments in Time</h2>
+      <h2 className="gallery-title">لحظاتك الحلوة</h2>
       <div className="memory-grid">
         {memories.map((item) => (
-          <div key={item.id} className="memory-card">
+          <motion.div 
+            key={item.id} className="memory-card" onClick={() => setSelectedImage(item)}
+            layoutId={`card-${item.id}`}>
             <img src={item.img} alt="Memory" />
             <div className="card-overlay">
               <p>{item.note}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       
@@ -31,9 +35,34 @@ const GalleryStage = ({ onNext, onProposal }) => {
           if (onProposal) onProposal();
           onNext();
         }}>
-          There's just one more thing... ✨
+          😉 ...مممم وأخرى اشي
         </button>
       </div>
+
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              className="modal-content"
+              layoutId={`card-${selectedImage.id}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={selectedImage.img} alt="Enlarged memory" className="modal-image" />
+              <p className="modal-note">{selectedImage.note}</p>
+              <button className="modal-close-btn" onClick={() => setSelectedImage(null)}>
+                &times;
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </motion.div>
   );
 };

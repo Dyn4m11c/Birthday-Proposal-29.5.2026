@@ -64,8 +64,8 @@ const TimeCounterStage = ({ onNext }) => {
         transition={{ duration: 1 }}
         className="counter-card"
       >
-        <span className="counter-subtitle">Every single second matters...</span>
-        <h2 className="counter-title">Time Spent Loving You</h2>
+        <span className="counter-subtitle">...بفكر فيكي بكل تانية بحياتي</span>
+        <h2 className="counter-title">عنجد حبيتك من أول نظرة</h2>
 
         <div className="dashboard-grid">
           {Object.entries(timeElapsed).map(([unit, value]) => (
@@ -96,7 +96,7 @@ const TimeCounterStage = ({ onNext }) => {
           className="counter-next-btn"
           onClick={onNext}
         >
-          See Our Journey ➔
+           نكمل رحلتنا ➔
         </motion.button>
       </motion.div>
     </div>

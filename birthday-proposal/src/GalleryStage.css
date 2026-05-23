@@ -1,8 +1,10 @@
 .gallery-container {
-  padding: 40px 20px;
+  padding: 20px 10px;
   width: 100%;
   max-width: 1000px;
   z-index: 10;
+  height: 100dvh; /* Takes up the exact height of the screen */
+  overflow-y: auto; /* Allows you to scroll up and down to see all photos */
 }
 
 .gallery-title {
@@ -29,8 +31,9 @@
 
 .memory-card img {
   width: 100%; 
-  height: 250px; 
-  object-fit: cover;
+  height: 300px; /* Increased height for a larger feel */
+  object-fit: contain; /* This will make the image fill the container, cropping if necessary */
+  background: #1a1a1a;
   transition: transform 0.5s ease;
 }
 
@@ -51,4 +54,48 @@
 }
 @media (max-width: 480px) {
   .memory-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 90vw;
+  max-height: 90dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 75dvh;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.modal-note {
+  color: #eee;
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
 }

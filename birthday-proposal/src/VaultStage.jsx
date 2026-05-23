@@ -26,7 +26,7 @@ const VaultStage = ({ onNext }) => {
       style={{ textAlign: 'center', zIndex: 10, padding: '20px' }}
     >
       <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>🔒 مقفلة</h2>
-      <p style={{ marginBottom: '30px', color: '#ccc', fontSize: '1.2rem' }}>عشان نكمل حطي التاريخ الي التقينا فيو</p>
+      <p style={{ marginBottom: '30px', color: '#ccc', fontSize: '1.2rem' }}>الكود هو أول مرة شفتك فيها</p>
       
       <form onSubmit={checkDate} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
         <motion.input

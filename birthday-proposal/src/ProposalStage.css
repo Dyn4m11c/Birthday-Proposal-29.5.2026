@@ -29,7 +29,7 @@
 }
 
 .proposal-title {
-  font-size: 3rem;
+  font-size: 1.5rem;
   margin-bottom: 40px;
   text-shadow: 0 0 20px rgba(255, 30, 100, 0.6);
 }
@@ -71,7 +71,7 @@
 }
 
 .celebration-content h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: #ff416c;
   margin-bottom: 20px;
   text-shadow: 0 0 15px rgba(255,65,108,0.4);
