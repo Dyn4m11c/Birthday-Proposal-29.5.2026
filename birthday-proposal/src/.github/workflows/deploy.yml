@@ -1,0 +1,41 @@
+# deploy.yml[cite: 9]
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"] # Ensures this runs when you push code to main[cite: 9]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4[cite: 9]
+      - name: Set up Node
+        uses: actions/setup-node@v4[cite: 9]
+        with:
+          node-version: 18[cite: 9]
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci[cite: 9]
+      - name: Build
+        run: npm run build[cite: 9]
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3[cite: 9]
+        with:
+          path: './dist' # Where Vite puts the compiled files[cite: 4]
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4[cite: 9]
