@@ -9,8 +9,8 @@ const WelcomeStage = ({ onNext }) => {
       transition={{ duration: 1.2, ease: "easeOut" }}
       style={{ textAlign: 'center', zIndex: 10 }}
     >
-      <h1 style={{ fontSize: '3rem', marginBottom: '40px' }}>🎉كل سنة وانت سالمة شهودتي</h1>
-      <p style={{ fontSize: '1rem', marginBottom: '35px', color: '#ccc' }}>
+      <h1 style={{ fontSize: '2rem', marginBottom: '40px' }}>🎉كل سنة وانت سالمة شهودتي</h1>
+      <p style={{ fontSize: '1.2rem', marginBottom: '35px', color: '#ccc' }}>
        ... عملتلك مفاجأة صغيرة عشان نحتفل بيومك الخاص
       </p>
       <button onClick={onNext}>🎁 يلا نبلش المفاجأة</button>

@@ -12,13 +12,19 @@ import './App.css';
 
 function App() {
   const [stage, setStage] = useState(0);
+  const beginningMusicRef = useRef(null);
   const bgMusicRef = useRef(null);
   const proposalMusicRef = useRef(null);
 
   const nextStage = () => setStage((prev) => prev + 1);
 
   // Starts the first song
-  const playBackgroundMusic = () => {
+  const startBackgroundMusic = () => {
+    if (beginningMusicRef.current) beginningMusicRef.current.play();
+  };
+  
+  const playBirthdayMusic = () => {
+    if (beginningMusicRef.current) beginningMusicRef.current.pause();
     if (bgMusicRef.current) bgMusicRef.current.play();
   };
 
@@ -31,15 +37,16 @@ function App() {
   return (
     <div className="app-container">
       {/* Global Audio Players */}
-      <audio ref={bgMusicRef} src="/Hamaki - Mel Bedaya (Official Lyric Video)  حماقي - م البداية - كلمات.mp3" loop />
+      <audio ref={bgMusicRef} src="/Ahmad Akkad - Kebrit Sene [Official Video]  أحمد العقاد - كبرت سنه.mp3" loop />
       <audio ref={proposalMusicRef} src="/السبع.mp3" loop />
+      <audio ref={beginningMusicRef} src="/Kol Sana.mp3" loop />
 
       {/* Show particles in the background for stages 2 through 4 */}
       {stage > 1 && stage < 5 && <FloatingParticles />}
       
       {stage === 0 && <VaultStage onNext={nextStage} />}
-      {stage === 1 && <WelcomeStage onNext={nextStage} />}
-      {stage === 2 && <InteractiveStage onNext={nextStage} playMusic={playBackgroundMusic} />}
+      {stage === 1 && <WelcomeStage onNext={nextStage} playMusic={startBackgroundMusic} />} 
+      {stage === 2 && <InteractiveStage onNext={nextStage} playMusic={playBirthdayMusic} />}
       {stage === 3 && <CurtainStage onNext={nextStage} />}
       {stage === 4 && <MessageStage onNext={nextStage} />}
       {stage === 5 && <TimeCounterStage onNext={nextStage} />}

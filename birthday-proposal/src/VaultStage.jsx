@@ -6,7 +6,7 @@ const VaultStage = ({ onNext }) => {
   const [error, setError] = useState(false);
   
   // Set your specific anniversary date here!
-  const targetDate = '2026-05-29'; // HTML date inputs always use YYYY-MM-DD format
+  const targetDate = '2025-11-11'; // HTML date inputs always use YYYY-MM-DD format
 
   const checkDate = (e) => {
     e.preventDefault();
@@ -25,8 +25,8 @@ const VaultStage = ({ onNext }) => {
       transition={{ duration: 0.8 }}
       style={{ textAlign: 'center', zIndex: 10, padding: '20px' }}
     >
-      <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>🔒 Protected Vault</h2>
-      <p style={{ marginBottom: '30px', color: '#ccc', fontSize: '1.2rem' }}>To proceed, please enter our anniversary date.</p>
+      <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>🔒 مقفلة</h2>
+      <p style={{ marginBottom: '30px', color: '#ccc', fontSize: '1.2rem' }}>عشان نكمل حطي التاريخ الي التقينا فيو</p>
       
       <form onSubmit={checkDate} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
         <motion.input
@@ -41,7 +41,7 @@ const VaultStage = ({ onNext }) => {
             background: '#222', color: '#fff', textAlign: 'center', outline: 'none'
           }}
         />
-        <button type="submit">Unlock 🗝️</button>
+        <button type="submit">🗝️ افتحي</button>
       </form>
     </motion.div>
   );

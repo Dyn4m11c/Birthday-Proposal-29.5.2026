@@ -28,7 +28,7 @@ const InteractiveStage = ({ onNext, playMusic }) => {
     }
   };
 
-  const buttonTexts = ["💡 منطفي الضي", "🎵 ومنشغل اغاني", "Reveal the surprise ✨"];
+  const buttonTexts = ["💡 منطفي الضي", "🎵 ومنشغل اغاني", "✨ ومنكمل المفاجأة"];
 
   return (
     <motion.div
